@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+    "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="helloForm" type="com.example.HelloForm"/>
+    <form-bean name="alunoForm" type="br.unb.struts.AlunoForm"/>
+  </form-beans>
+  <action-mappings>
+    <action path="/hello" name="helloForm" type="com.example.HelloAction" scope="request" validate="false">
+      <forward name="success" path="/hello.jsp"/>
+    </action>
+    <action path="/aluno" name="alunoForm" type="br.unb.struts.AlunoAction" scope="request" validate="true">
+        <forward name="success" path="/aluno.jsp"/>
+    </action>
+  </action-mappings> 
+  <message-resources parameter="ApplicationResources" />
+</struts-config>

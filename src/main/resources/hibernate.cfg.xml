@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Configurações de conexão com o banco de dados -->
+		<property name="hibernate.connection.driver_class">org.h2.Driver</property>
+		<property name="hibernate.connection.url">jdbc:h2:tcp://localhost/~/test;MODE=LEGACY</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password"></property>
+
+		<!-- Dialeto SQL para o banco de dados específico -->
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+
+		<!-- Mostra as consultas SQL executadas pelo Hibernate -->
+		<property name="show_sql">true</property>
+
+		<!-- Cria as tabelas automaticamente se não existirem -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+
+		<!-- Mapeamento das classes de entidades -->
+		<mapping class="br.unb.dominio.Pessoa" />
+		<mapping class="br.unb.dominio.Projeto" />
+		<mapping class="br.unb.dominio.Produto" />
+		<mapping class="br.unb.dominio.Categoria" />
+		<mapping class="br.unb.dominio.Endereco" />
+		<mapping class="br.unb.dominio.heranca.PessoaSingleTable" />
+		<mapping class="br.unb.dominio.heranca.PessoaJuridica" />
+		<mapping class="br.unb.dominio.heranca.PessoaFisica" />
+		<!-- Adicione mais classes de entidades aqui -->
+	</session-factory>
+</hibernate-configuration>
