@@ -6,6 +6,7 @@
   <form-beans>
     <form-bean name="helloForm" type="com.example.HelloForm"/>
     <form-bean name="alunoForm" type="br.unb.struts.AlunoForm"/>
+    <form-bean name="disciplinaForm" type="br.unb.struts.DisciplinaForm"/>
   </form-beans>
   <action-mappings>
     <action path="/hello" name="helloForm" type="com.example.HelloAction" scope="request" validate="false">
@@ -13,6 +14,9 @@
     </action>
     <action path="/aluno" name="alunoForm" type="br.unb.struts.AlunoAction" scope="request" validate="true">
         <forward name="success" path="/aluno.jsp"/>
+    </action>
+        <action path="/disciplina" name="disciplinaForm" type="br.unb.struts.DisciplinaAction" scope="request" validate="true">
+        <forward name="success" path="/disciplina.jsp"/>
     </action>
   </action-mappings> 
   <message-resources parameter="ApplicationResources" />
