@@ -5,14 +5,14 @@
 
 <html>
 <head>
-    <title>Cadastro de Alunos</title>
+    <title>Cadastro de Disciplina</title>
   <!-- Outras meta tags, títulos, etc... -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
 
-    <h1>Cadastro das Disciplinas</h1>
+    <h1>Cadastro das Disciplinas da eliene</h1>
 
     <html:form action="/disciplina" method="post">
 

@@ -21,6 +21,13 @@ input[type="submit"] {
   border: none;
   cursor: pointer;
 }
+/* Estilo para o campo de texto de curso */
+input[name="curso"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
 
 /* Estilo para o campo de texto de nome */
 input[name="nome"] {

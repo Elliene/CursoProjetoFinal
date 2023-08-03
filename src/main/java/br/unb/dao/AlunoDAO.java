@@ -38,6 +38,7 @@ public class AlunoDAO {
 				if (generatedKeys.next()) {
 					aluno.setId(generatedKeys.getInt(1));
 				}
+				
 			}
 		}
 	}

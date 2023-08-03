@@ -7,10 +7,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss 5.1 Runtime 1.7 20230721"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/common/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/69493839168/git/webUnb/src/main/webapp/WEB-INF/lib/h2-1.4.200.jar"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/common/lib/hibernate-core.jar"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/lib/dom4j.jar"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/client/ejb3-persistence.jar"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/client/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/H2/bin/h2-2.1.214.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
