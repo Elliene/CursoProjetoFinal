@@ -1,7 +1,7 @@
 package br.unb.struts;
 
 import org.apache.struts.action.ActionForm;
-
+//clase de camada de apresentação
 @SuppressWarnings("serial")
 public class DisciplinaForm extends ActionForm {
 	private int id;
@@ -9,6 +9,8 @@ public class DisciplinaForm extends ActionForm {
 	private String local;
 	private String turma;
 	private String curso;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -40,7 +42,7 @@ public class DisciplinaForm extends ActionForm {
 		this.curso = curso;
 	}
 
-
+  //aqui pode ter relacionamentos das entidades
 	
 
 	// Getters e Setters

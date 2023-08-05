@@ -22,20 +22,6 @@ public class AlunoAction extends Action {
         System.out.println("AlunoAction::execute");
     	AlunoForm alunoForm = (AlunoForm) form;
         AlunoDAO alunoDAO = new AlunoDAO();
-     // Realize a validação do alunoForm antes de salvar
-        ActionMessages errors = new ActionErrors();
-        if (alunoForm.getNome() == null || alunoForm.getNome().trim().isEmpty()) {
-            errors.add("nome", new ActionMessage("error.nome.required"));
-        }
-        if (alunoForm.getMatricula() == null || alunoForm.getMatricula().trim().isEmpty()) {
-            errors.add("matricula", new ActionMessage("error.matricula.required"));
-        }
-
-        if (!errors.isEmpty()) {
-            // Se houver erros, adicione-os ao request e retorne a página de entrada (input)
-            saveErrors(request, errors);
-//            return mapping.findForward("success");
-        }
         String method = request.getParameter("method");
         System.out.println("AlunoAction::execute::method "+ method);
         if (method != null && !method.isEmpty()) {
@@ -46,18 +32,18 @@ public class AlunoAction extends Action {
                     break;
                 case "editar":
                     int id = Integer.parseInt(request.getParameter("id"));
-                    aluno = alunoDAO.buscarPorId(id);
+                    aluno = alunoDAO.getById(id);
                     alunoForm.setId(aluno.getId());
                     alunoForm.setNome(aluno.getNome());
                     alunoForm.setMatricula(aluno.getMatricula());
                     break;
                 case "atualizar":
-                    aluno = new Aluno(alunoForm.getId(), alunoForm.getNome(), alunoForm.getMatricula());
-                    alunoDAO.atualizar(aluno);
+                    aluno = new Aluno(alunoForm.getNome(), alunoForm.getMatricula());
+                    alunoDAO.update(aluno);
                     break;
                 case "excluir":
                     id = Integer.parseInt(request.getParameter("id"));
-                    alunoDAO.excluir(id);
+                    alunoDAO.delete(id);
                     break;
             }
         }

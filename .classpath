@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/client/ejb3-persistence.jar"/>
 	<classpathentry kind="lib" path="C:/projeto_java/curso java/SERVIDOR/jboss-5.1.0.GA/client/hibernate-annotations.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/H2/bin/h2-2.1.214.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/PostgreSQL/postgresql-42.6.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

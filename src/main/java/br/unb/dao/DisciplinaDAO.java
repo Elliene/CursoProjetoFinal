@@ -1,117 +1,84 @@
 package br.unb.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import br.unb.dominio.Disciplina;
 
-public class DisciplinaDAO {
-	private static final String URL = "jdbc:h2:tcp://localhost/~/test";
-	private static final String USER = "sa";
-	private static final String PASSWORD = "";
-	
-	public DisciplinaDAO() {
-		try {
-			Class.forName("org.h2.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+public class DisciplinaDAO { //utilizada para instanciar as classes para atender as regras de negocio
+
+	public Disciplina salvar(Disciplina disciplina) {
+		// Configuração da sessão do Hibernate (SessionFactory)
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		// Iniciando a transação
+		Transaction tx = session.beginTransaction();
+
+		// Salvando a disciplina no banco de dados
+		session.save(disciplina);
+
+		// Comitando a transação
+		tx.commit();
+
+		// Fechando a sessão
+		session.close();
+		return disciplina;
+
 	}
 
-	public void salvar(Disciplina disciplina) throws SQLException {
-		
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String sql = "INSERT INTO disciplina (nome, local, turma, curso) VALUES (?, ?, ?,?)";
-			try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-				statement.setString(1, disciplina.getNome());
-				statement.setString(2, disciplina.getLocal());
-				statement.setString(3, disciplina.getTurma());
-				statement.setString(4, disciplina.getCurso());
-				statement.executeUpdate();
+	public Disciplina update(Disciplina d) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
 
-				ResultSet generatedKeys = statement.getGeneratedKeys();
-				if (generatedKeys.next()) {
-					disciplina.setId(generatedKeys.getInt(1));
-				}
-			}
-		}
+		// Atualizando a pessoa no banco de dados
+		session.update(d);
+
+		tx.commit();
+		session.close();
+
+		return d;
+
 	}
 
-	public void atualizar(Disciplina disciplina) throws SQLException {
-		System.out.println("DisciplinaDAO::atualizar::disciplina->"+disciplina);
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String sql = "UPDATE disciplina SET nome = ?, local = ? , turma = ?, curso = ? WHERE id = ?";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setString(1, disciplina.getNome());
-				statement.setString(2, disciplina.getLocal());
-				statement.setString(3, disciplina.getTurma());
-				statement.setString(4, disciplina.getCurso());
-				statement.setInt(5, disciplina.getId());
-				statement.executeUpdate();
-			}
-		}
+	public void delete(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+
+		// Lendo uma disciplina existente pelo ID
+		Disciplina disciplina = (Disciplina) session.get(Disciplina.class, id);
+
+		// Excluindo a pessoa do banco de dados
+		session.delete(disciplina);
+
+		tx.commit();
+		session.close();
+
 	}
 
-	public void excluir(int id) throws SQLException {
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String sql = "DELETE FROM disciplina WHERE id = ?";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setInt(1, id);
-				statement.executeUpdate();
-			}
-		}
+	public Disciplina getById(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		// Usando get() para ler a disciplina com o ID especificado
+		Disciplina disciplina = (Disciplina) session.get(Disciplina.class, id);
+
+		// Encerrando a sessão
+		session.close();
+		return disciplina;
 	}
 
-	public Disciplina buscarPorId(int id) throws SQLException {
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String sql = "SELECT * FROM disciplina WHERE id = ?";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setInt(1, id);
-				try (ResultSet resultSet = statement.executeQuery()) {
-					if (resultSet.next()) {
-						String nome = resultSet.getString("nome");
-						String local = resultSet.getString("local");
-						String turma = resultSet.getString("turma");
-						String curso = resultSet.getString("curso");
-						Disciplina disciplina = new Disciplina(nome, local,turma,curso);
-						disciplina.setId(id);
-						return disciplina;
-					}
-				}
-			}
-		}
-		return null;
+	public List<Disciplina> findAll() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("FROM Disciplina");
+		List<Disciplina> disciplina = query.list();
+		session.close();
+		return disciplina;
 	}
 
-	public List<Disciplina> listarTodos() throws SQLException, ClassNotFoundException {
-		System.out.println("DisciplinaDAO::listarTodos");
-		List<Disciplina> disciplinas = new ArrayList<>();
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String sql = "SELECT * FROM disciplina";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				try (ResultSet resultSet = statement.executeQuery()) {
-					while (resultSet.next()) {
-						int id = resultSet.getInt("id");
-						String nome = resultSet.getString("nome");
-						String local = resultSet.getString("local");
-						String turma = resultSet.getString("turma");
-						String curso = resultSet.getString("curso");
-						Disciplina disciplina = new Disciplina(nome, local, turma, curso);
-						disciplina.setId(id);
-						disciplinas.add(disciplina);
-					}
-				}
-			}
-		}
-		System.out.println("DisciplinaDAO::listarTodos::disciplinas->"+disciplinas);
-		return disciplinas;
-	}
 }
 

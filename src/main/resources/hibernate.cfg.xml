@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Configurações de conexão com o banco de dados -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost/postgres", "postgres";MODE=LEGACY</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">123</property>
+		
+		<!-- Dialeto SQL para o banco de dados específico -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>  
+
+		<!-- Mostra as consultas SQL executadas pelo Hibernate -->
+		<property name="show_sql">true</property>
+
+		<!-- Cria as tabelas automaticamente se não existirem -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+
+		<!-- Mapeamento das classes de entidades -->
+		<mapping class="br.unb.dominio.Aluno" />
+		<mapping class="br.unb.dominio.Disciplina" />
+		<mapping class="br.unb.dominio.Professor" />
+		<!-- Adicione mais classes de entidades aqui -->
+	</session-factory>
+</hibernate-configuration>
