@@ -43,7 +43,7 @@
         </p>
 
         <p>
-            <html:submit value="${disciplinaForm.id == 0 ? 'Salvar' : 'Atualizar'}"/>
+            <html:submit value="${disciplinaForm.id == 0 ? 'Salvar' : 'update'}"/>
         </p>
 
     </html:form>

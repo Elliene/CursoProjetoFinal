@@ -39,9 +39,8 @@ public class AlunoForm extends ActionForm {
 	public void setMethod(String method) {
 		this.method = method;
 	}
-//comentario git
 	
-	// Getters e Setters
-	// ...
+	
+
 
 }

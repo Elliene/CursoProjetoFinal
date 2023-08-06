@@ -5,13 +5,13 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- Configurações de conexão com o banco de dados -->
-		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost/postgres", "postgres";MODE=LEGACY</property>
-		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">123</property>
-		
+		<property name="hibernate.connection.driver_class">org.h2.Driver</property>
+		<property name="hibernate.connection.url">jdbc:h2:tcp://localhost/~/test;MODE=LEGACY</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password"></property>
+
 		<!-- Dialeto SQL para o banco de dados específico -->
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>  
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
 
 		<!-- Mostra as consultas SQL executadas pelo Hibernate -->
 		<property name="show_sql">true</property>
@@ -20,8 +20,8 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 
 		<!-- Mapeamento das classes de entidades -->
-		<mapping class="br.unb.dominio.Aluno" />
 		<mapping class="br.unb.dominio.Disciplina" />
+		<mapping class="br.unb.dominio.Aluno" />
 		<mapping class="br.unb.dominio.Professor" />
 		<!-- Adicione mais classes de entidades aqui -->
 	</session-factory>

@@ -16,7 +16,7 @@
 
     <html:form action="/aluno" method="post">
 
-        <html:hidden property="method" value="${alunoForm.id == 0 ? 'salvar' : 'atualizar'}"/>
+        <html:hidden property="method" value="${alunoForm.id == 0 ? 'salvar' : 'updade'}"/>
 		<html:hidden property="id" value="${alunoForm.id}"/> <!-- Incluímos o campo oculto para o ID -->
 		
 		<span style="color: red">

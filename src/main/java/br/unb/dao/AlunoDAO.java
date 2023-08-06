@@ -45,7 +45,7 @@ public class AlunoDAO {
 
 	}
 
-	public void delete(Long id) {
+	public void delete(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 
@@ -60,22 +60,20 @@ public class AlunoDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Aluno> findAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query query = session.createQuery("FROM Pessoa");
+		Query query = session.createQuery("FROM Aluno");
 		List<Aluno> alunos = query.list();
 		session.close();
 		return alunos;
 	}
 
-	public Aluno getById(Long id) {
+	public Aluno getById(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		// Usando get() para ler a aluno com o ID especificado
 		Aluno aluno = (Aluno) session.get(Aluno.class, id);
-
-		// Carregando uma Aluno com ID
-		Aluno alunos = (Aluno) session.load(Aluno.class, id);
 
 		// Encerrando a sessão
 		session.close();
