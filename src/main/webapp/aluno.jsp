@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Cadastro de Alunos</title>
-  <!-- Outras meta tags, títulos, etc... -->
+  <!-- Outras meta tags, t�tulos, etc... -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
@@ -16,8 +16,8 @@
 
     <html:form action="/aluno" method="post">
 
-        <html:hidden property="method" value="${alunoForm.id == 0 ? 'salvar' : 'updade'}"/>
-		<html:hidden property="id" value="${alunoForm.id}"/> <!-- Incluímos o campo oculto para o ID -->
+        <html:hidden property="method" value="${alunoForm.id == 0 ? 'salvar' : 'atualizar'}"/>
+		<html:hidden property="id" value="${alunoForm.id}"/> <!-- Inclu�mos o campo oculto para o ID -->
 		
 		<span style="color: red">
         <html:errors/>
@@ -28,7 +28,7 @@
         </p>
 
         <p>
-            <label for="matricula">Matrícula:</label>
+            <label for="matricula">Matricula:</label>
             <html:text property="matricula" size="20"/>
         </p>
 
@@ -44,7 +44,7 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Matrícula<repareStatement(sql)) {
+            <th>Matricula<repareStatement(sql) {
 				statement.setString(1, aluno.getNome());/th>
             <th>Editar</th>
             <th>Excluir</th>

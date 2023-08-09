@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionErrors;
+//import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessages;
+//import org.apache.struts.action.ActionMessages;
 
 import br.unb.dao.DisciplinaDAO;
 import br.unb.dominio.Disciplina;
@@ -22,7 +22,7 @@ public class DisciplinaAction extends Action {
 		System.out.println("DisciplinaAction::execute");
 		DisciplinaForm disciplinaForm = (DisciplinaForm) form;
 		DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
-		ActionMessages errors = new ActionErrors();
+		//ActionMessages errors = new ActionErrors();
 		String method = request.getParameter("method");
 		System.out.println("DisciplinaAction::execute::method " + method);
 		if (method != null && !method.isEmpty()) {

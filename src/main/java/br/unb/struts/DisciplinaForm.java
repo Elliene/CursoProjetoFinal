@@ -9,6 +9,7 @@ public class DisciplinaForm extends ActionForm {
 	private String local;
 	private String turma;
 	private String curso;
+	private String method;
 	
 	
 	public int getId() {
@@ -40,6 +41,14 @@ public class DisciplinaForm extends ActionForm {
 	}
 	public void setCurso(String curso) {
 		this.curso = curso;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
 	}
 
   //aqui pode ter relacionamentos das entidades

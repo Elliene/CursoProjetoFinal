@@ -1,4 +1,5 @@
 package br.unb.dominio;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
@@ -7,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Disciplina")
+@Table(name = "disciplina")
 public class Disciplina {
 
 	//mapeia a classe para o sql**classe da camada de negocio
@@ -71,8 +72,8 @@ public class Disciplina {
 	
 	@Override
 	public String toString() {
-		return "Disciplina { " + " id =" + id + ", nome=" + nome + ", curso=" + curso + ", turma=" + turma + ", local=" 
-	   + local +  '\'' + '}';
+		return "Disciplina [id =" + id + ", nome=" + nome + ", curso=" + curso + ", turma=" + turma + ", local=" 
+	   + local + "]";
 	}
 
 

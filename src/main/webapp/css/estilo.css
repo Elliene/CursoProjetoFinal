@@ -21,7 +21,7 @@ input[type="submit"] {
   border: none;
   cursor: pointer;
 }
-/* Estilo para o campo de texto de curso */
+/* Estilo para o campo de texto curso */
 input[name="curso"] {
   width: 100%;
   padding: 10px;
@@ -29,7 +29,7 @@ input[name="curso"] {
   border: 1px solid #ccc;
 }
 
-/* Estilo para o campo de texto de nome */
+/* Estilo para o campo de texto nome */
 input[name="nome"] {
   width: 100%;
   padding: 10px;
@@ -44,8 +44,48 @@ input[name="matricula"] {
   margin-bottom: 10px;
   border: 1px solid #ccc;
 }
+/* Estilo para o campo de texto de endereço */
+input[name="endereco"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
 
-/* Estilos para a tabela de alunos */
+/* Estilo para o campo de texto telefone */
+input[name="telefone"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para o campo de texto idade */
+input[name="idade"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para o campo de texto local */
+input[name="local"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para o campo de texto turma */
+input[name="turma"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+
+/* Estilos para a tabela */
 table {
   width: 100%;
   border-collapse: collapse;

@@ -17,12 +17,12 @@
 		<property name="show_sql">true</property>
 
 		<!-- Cria as tabelas automaticamente se não existirem -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!-- Mapeamento das classes de entidades -->
 		<mapping class="br.unb.dominio.Disciplina" />
 		<mapping class="br.unb.dominio.Aluno" />
-		<mapping class="br.unb.dominio.Professor" />
+		<mapping class="br.unb.dominio.Professor" /> 
 		<!-- Adicione mais classes de entidades aqui -->
 	</session-factory>
 </hibernate-configuration>

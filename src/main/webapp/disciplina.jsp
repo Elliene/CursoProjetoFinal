@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <h1>Cadastro das Disciplinas da eliene</h1>
+    <h1>Cadastro das Disciplinas da eliene teste 1</h1>
 
     <html:form action="/disciplina" method="post">
 
@@ -43,7 +43,7 @@
         </p>
 
         <p>
-            <html:submit value="${disciplinaForm.id == 0 ? 'Salvar' : 'update'}"/>
+            <html:submit value="${disciplinaForm.id == 0 ? 'Salvar' : 'atualizar'}"/>
         </p>
 
     </html:form>
