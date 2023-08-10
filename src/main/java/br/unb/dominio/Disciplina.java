@@ -15,11 +15,20 @@ public class Disciplina {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Estrategia para criação do ID,
 	private int id; 
-	@Column 
+	@Column(name="nome")
 	private String nome; // nome da disciplina
+	
+	@Column(name="curso")
 	private String curso; // nome do curso: civil, medicina, direito
+	
+	@Column(name="turma")
 	private String turma; // 20231
+	
+	@Column(name="local")
 	private String local; // Bloco sala	
+	
+	public Disciplina() {
+	}	
 	
 	public Disciplina(String nome, String curso, String turma, String local) {
 		super();
@@ -28,7 +37,15 @@ public class Disciplina {
 		this.turma = turma;
 		this.local = local;
 	}
-
+    
+	public Disciplina(int id, String nome, String curso, String turma, String local) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.curso = curso;
+		this.turma = turma;
+		this.local = local;
+	}
 
 	public int getId() {
 		return id;
