@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 /**
  * @author
@@ -17,13 +19,15 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "nome")
 	private String nome;
-	
+
 	@Column(name = "matricula")
 	private String matricula;
-	
+
+	@ManyToMany(mappedBy = "alunos")
+	private List<Disciplina> disciplinas;
 
 	public Aluno() {
 	}
@@ -64,9 +68,16 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
 
 	@Override
 	public String toString() {
-		return "Aluno[id=" + id + ", nome=" + nome +", matricula=" + matricula +"]";
+		return "Aluno[id=" + id + ", nome=" + nome + ", matricula=" + matricula + "]";
 	}
 }
