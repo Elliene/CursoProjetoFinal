@@ -60,7 +60,7 @@ public class AlunoDAO {
 
 	}
 
-	@SuppressWarnings("unchecked")
+
 	public List<Aluno> findAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("FROM Aluno");

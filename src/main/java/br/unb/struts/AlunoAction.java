@@ -59,7 +59,7 @@ public class AlunoAction extends Action {
                     id = Integer.parseInt(request.getParameter("id"));
                     alunoDAO.delete(id);
                     break;
-            }
+                }
         }
 
         List<Aluno> alunos = alunoDAO.findAll();

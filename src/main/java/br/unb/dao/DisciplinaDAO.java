@@ -72,12 +72,13 @@ public class DisciplinaDAO { //utilizada para instanciar as classes para atender
 		return disciplina;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Disciplina> findAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("FROM Disciplina");
-		List<Disciplina> disciplina = query.list();
+		List<Disciplina> disciplinas = query.list();
 		session.close();
-		return disciplina;
+		return disciplinas;
 	}
 
 }

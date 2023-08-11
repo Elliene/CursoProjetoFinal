@@ -26,7 +26,7 @@ public class Aluno {
 	@Column(name = "matricula")
 	private String matricula;
 
-	@ManyToMany(mappedBy = "alunos")
+    @ManyToMany(mappedBy = "alunos")
 	private List<Disciplina> disciplinas;
 
 	public Aluno() {
