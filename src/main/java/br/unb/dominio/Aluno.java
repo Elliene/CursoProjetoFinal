@@ -26,8 +26,8 @@ public class Aluno {
 	@Column(name = "matricula")
 	private String matricula;
 
-    @ManyToMany(mappedBy = "alunos")
-	private List<Disciplina> disciplinas;
+/*    @ManyToMany(mappedBy = "alunos")
+	private List<Disciplina> disciplinas;*/
 
 	public Aluno() {
 	}
@@ -68,13 +68,13 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 
-	public List<Disciplina> getDisciplinas() {
+/*	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
-	}
+	}*/
 
 	@Override
 	public String toString() {

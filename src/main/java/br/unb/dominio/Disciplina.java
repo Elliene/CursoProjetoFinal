@@ -35,14 +35,14 @@ public class Disciplina {
 
 	public Disciplina() {
 	}
-
+/*
 	@ManyToMany
 	@JoinTable(name = "aluno_disciplina", joinColumns = @JoinColumn(name = "disciplina_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
 	private List<Aluno> Alunos;
 
 	@ManyToOne
 	@JoinColumn(name = "professor_id")
-	private Professor professor;
+	private Professor professor;*/
 
 	public Disciplina(String nome, String curso, String turma, String local) {
 		super();
@@ -101,7 +101,7 @@ public class Disciplina {
 		this.local = local;
 	}
 
-	public List<Aluno> getAlunos() {
+/*	public List<Aluno> getAlunos() {
 		return Alunos;
 	}
 
@@ -115,7 +115,7 @@ public class Disciplina {
 
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
-	}
+	}*/
 
 	@Override
 	public String toString() {
