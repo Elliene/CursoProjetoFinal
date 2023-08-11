@@ -19,9 +19,11 @@
     <action path="/professor" name="professorForm" type="br.unb.struts.ProfessorAction" scope="request" validate="true">
         <forward name="success" path="/professor.jsp"/>
     </action>
-        <action path="/alunodisciplina" name="alunoDisciplinaForm" type="br.unb.struts.AlunoDisciplinaAction" scope="request" validate="true">
-        <forward name="success" path="/AlunoDisciplina.jsp"/>
-    </action>
+	<action path="/alunoDisciplina" type="br.unb.struts.AlunoDisciplinaAction" name="alunoDisciplinaForm"
+            scope="request" validate="false">
+            <forward name="success" path="/sucesso.jsp" />
+            <forward name="input" path="/alunoDisciplina.jsp" />
+     </action>
   </action-mappings> 
   <message-resources parameter="ApplicationResources" />
 </struts-config>
