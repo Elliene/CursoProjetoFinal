@@ -35,19 +35,17 @@ public class AlunoDisciplinaAction extends Action {
 		// Encontrar o aluno e disciplina selecionados
 		Aluno alunoSelecionado = null;
 		Disciplina disciplinaSelecionada = null;
-		if (alunoForm != null) {
-			for (Aluno aluno : alunos) {
-				if (aluno.getId() == alunoForm.getAlunoId()) {
-					alunoSelecionado = aluno;
-					break;
-				}
+		for (Aluno aluno : alunos) {
+			if (aluno.getId() == alunoForm.getAlunoId()) {
+				alunoSelecionado = aluno;
+				break;
 			}
-			
-			for (Disciplina disciplina : disciplinas) {
-				if (disciplina.getId() == alunoForm.getDisciplinaId()) {
-					disciplinaSelecionada = disciplina;
-					break;
-				}
+		}
+
+		for (Disciplina disciplina : disciplinas) {
+			if (disciplina.getId() == alunoForm.getDisciplinaId()) {
+				disciplinaSelecionada = disciplina;
+				break;
 			}
 		}
 
